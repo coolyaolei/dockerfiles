@@ -17,7 +17,8 @@ make && \
 make install && \
 cd /root && rm -rf cstore_fdw-${CSTORE_VER} && \
 apk del alpine-sdk && \
-rm -rf /var/cache/apk/*
+rm -rf /var/cache/apk/* && \
+echo -e 'echo "shared_preload_libraries = 'cstore_fdw'" >> ${PGDATA}/postgresql.conf' > /docker-entrypoint-initdb.d/cstore_fdw.sh
 
 
 
