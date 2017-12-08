@@ -3,8 +3,8 @@ MAINTAINER coolyaolei<coolyaolei@sina.com>
 
 RUN pwd && \ 
 # Change Mirror For China
-    sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list && \
-    sed -i 's/deb http:\/\/security.debian.org/#deb http:\/\/security.debian.org/g' /etc/apt/sources.list && \
+#    sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list && \
+#    sed -i 's/deb http:\/\/security.debian.org/#deb http:\/\/security.debian.org/g' /etc/apt/sources.list && \
     apt-get update && \
     apt-get install -y --no-install-recommends vsftpd db-util && \
     apt-get clean
