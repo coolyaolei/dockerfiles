@@ -12,8 +12,10 @@ ENV PYTHONPATH $NOTEBOOK_ROOT/lib
 # change login password at here 
 ENV PASSWORD '123456'
 ENV LANG='zh_CN.UTF8'
-
+# copy some fonts in this dir 
+# or comment this line
 ADD winfont /usr/share/fonts/winfont
+# can comment this line and uncomment the DOWNLOAD line (wget -q .....)
 ADD ${CONDA_INSTALL_FILE} /root/
 RUN cd && \
     # Change mirror site For China
@@ -24,6 +26,7 @@ RUN cd && \
     echo "Asia/Shanghai" > /etc/timezone && \
     npm config set registry https://registry.npm.taobao.org && \
     cd /usr/share/fonts && fc-cache -f && cd && \
+    # download line
     # wget -q https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/$CONDA_INSTALL_FILE && \
     mkdir -p $CONDA_INSTALL_DIR && \
     bash ./$CONDA_INSTALL_FILE -b -p $CONDA_INSTALL_DIR/miniconda && \
